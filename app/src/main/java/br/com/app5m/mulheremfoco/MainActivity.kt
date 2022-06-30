@@ -17,8 +17,14 @@ class MainActivity : AppCompatActivity(){
     init {
         lifecycleScope.launchWhenStarted {
             try {
+
                 // Call some suspend functions.
-                var urlVideoBackgroud="https://vod-progressive.akamaized.net/exp=1656568317~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1725%2F17%2F433625737%2F1887755183.mp4~hmac=15e0ad3c3eecc045aededb2dc4478e5a1b2a33272dbb14c4fbc78b36883aabf8/vimeo-prod-skyfire-std-us/01/1725/17/433625737/1887755183.mp4"
+                //https://www.pexels.com/video/woman-faceless-sport-fitness-4754030/
+                var urlVideoBackgroud="https://vod-progressive.akamaized.net/exp=1656576859~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1725%2F17%2F433625737%2F1887755183.mp4~hmac=76cc76c74a54c59c71e1a5a0840ce8b11a42be17dfa1feb65f1f73b46bac0f56/vimeo-prod-skyfire-std-us/01/1725/17/433625737/1887755183.mp4"
+
+
+
+                frameLayout = findViewById<FrameLayout>(R.id.frameLayout)
                 frameLayout = findViewById<FrameLayout>(R.id.frameLayout)
                 videoLayout = VideoLayout(this@MainActivity)
                 videoLayout.setGravity(VideoLayout.VGravity.centerCrop)
@@ -32,6 +38,7 @@ class MainActivity : AppCompatActivity(){
 
                     // Here, since we've checked, it is safe to run any
                     // Fragment transactions.
+
 
 
                 }
