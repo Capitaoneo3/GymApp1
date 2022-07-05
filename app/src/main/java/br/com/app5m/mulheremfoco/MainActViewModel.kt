@@ -1,8 +1,11 @@
 package br.com.app5m.mulheremfoco
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import egolabsapps.basicodemine.videolayout.VideoLayout
 import kotlinx.coroutines.Dispatchers
@@ -15,9 +18,10 @@ class MainActViewModel:ViewModel() {
     @SuppressLint("StaticFieldLeak")
     lateinit var  videoLayout:VideoLayout
 
+    var isPlaying =  MutableLiveData<Boolean>()
 
 
-     suspend fun startVideoLayout(fM:FrameLayout,videoLayout:VideoLayout) = coroutineScope {  // this: CoroutineScope
+    suspend fun startVideoLayout(fM:FrameLayout,videoLayout:VideoLayout,context: Context) = coroutineScope {  // this: CoroutineScope
         launch(Dispatchers.IO) {
             try {
                 this@MainActViewModel.frameLayout = fM
@@ -34,8 +38,6 @@ class MainActViewModel:ViewModel() {
 //                setDataSource(urlVideoBg)
                 videoLayout.setSound(false)
                 fM.addView(videoLayout)
-
-
 
 
 
