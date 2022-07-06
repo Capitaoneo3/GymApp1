@@ -1,15 +1,17 @@
 package br.com.app5m.mulheremfoco
 
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.SurfaceTexture
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.TextureView.SurfaceTextureListener
 import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import egolabsapps.basicodemine.videolayout.VideoLayout
-import kotlinx.coroutines.*
-import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity(){
     lateinit var  frameLayout:FrameLayout
@@ -26,6 +28,16 @@ class MainActivity : AppCompatActivity(){
                     try {
                         viewModel.isPlaying.value =  videoLayout.mediaPlayer.isPlaying
 
+                        videoLayout.mediaPlayer.setOnCompletionListener {
+                            Handler(Looper.getMainLooper()).postDelayed({
+
+                                Toast.makeText(this@MainActivity, "asdasdasd", Toast.LENGTH_SHORT).show()
+
+
+                            }, 100)
+
+
+                        }
                     }catch (e:Exception){
                         e
                     }
@@ -44,7 +56,7 @@ class MainActivity : AppCompatActivity(){
         // Create the observer which updates the UI.
         videoObserver = Observer<Boolean> { isPlaing ->
             // Update the UI, in this case, a TextView.
-            if (isPlaing) Toast.makeText(this, "asdasdasd", Toast.LENGTH_SHORT).show()
+//            if (isPlaing) Toast.makeText(this, "asdasdasd", Toast.LENGTH_SHORT).show()
         }
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
         viewModel.isPlaying.observe(this,videoObserver)
@@ -68,4 +80,6 @@ class MainActivity : AppCompatActivity(){
         super.onResume()
         if (::videoLayout.isInitialized)   videoLayout.onResumeVideoLayout()
     }
+
+
 }
