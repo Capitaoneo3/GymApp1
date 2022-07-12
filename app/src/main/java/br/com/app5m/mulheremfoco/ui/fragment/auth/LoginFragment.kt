@@ -15,8 +15,8 @@ import br.com.app5m.mulheremfoco.databinding.FragmentLoginBinding
 import br.com.app5m.mulheremfoco.helper.MyLocation
 import br.com.app5m.mulheremfoco.helper.Preferences
 import br.com.app5m.mulheremfoco.helper.ValidationHelper
-import br.com.app5m.mulheremfoco.dialog.AtentionMessageDialog
-import br.com.app5m.mulheremfoco.dialog.RightMessageDialog
+import br.com.app5m.mulheremfoco.ui.dialog.AtentionMessageDialog
+import br.com.app5m.mulheremfoco.ui.dialog.RightMessageDialog
 import kotlinx.android.synthetic.main.fragment_login.*
 
 
@@ -74,10 +74,13 @@ class LoginFragment : Fragment() {
 
         }
         recoverPassTv.setOnClickListener {
-//            findNavController().navigate(R.id.action_loginFragment_to_recoverPassFrag)
+            findNavController().navigate(R.id.action_loginFragment_to_recoverPassFrag)
         }
         loginBt.setOnClickListener {
-            if (!validation()) return@setOnClickListener
+            dialogshowRight("Login efetuado com sucesso.")
+
+
+//            if (!validation()) return@setOnClickListener
 
    /*         val user = UserItem()
             user.email = binding.emailEt.text.toString()

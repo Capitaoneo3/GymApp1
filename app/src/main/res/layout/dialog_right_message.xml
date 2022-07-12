@@ -6,7 +6,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/round_dialog_bg_white"
 
-        tools:context=".dialog.RightMessageDialog">
+        tools:context=".ui.dialog.RightMessageDialog">
 
         <LinearLayout
             android:layout_width="match_parent"

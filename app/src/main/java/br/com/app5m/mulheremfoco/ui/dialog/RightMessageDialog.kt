@@ -1,4 +1,4 @@
-package br.com.app5m.mulheremfoco.dialog
+package br.com.app5m.mulheremfoco.ui.dialog
 
 import android.content.Intent
 import android.os.Bundle
@@ -63,15 +63,21 @@ class RightMessageDialog : DialogFragment {
         coseBt.setOnClickListener {
             dialog?.dismiss()
             clickListener?.onClickListener()
-
-
-
-            if (message == "Login efetuado com sucesso.") {
-            /*    activity?.let {
+            if (message == "Cadastro adicionado") {
+                activity?.let {
                     val intent = Intent(it, HomeActivity::class.java)
                     it.startActivity(intent)
                     it.finishAffinity()
-                }*/
+                }
+            }
+
+
+            if (message == "Login efetuado com sucesso.") {
+                activity?.let {
+                    val intent = Intent(it, HomeActivity::class.java)
+                    it.startActivity(intent)
+                    it.finishAffinity()
+                }
             }
             if (message == "As instruções para alteração de senha foram enviadas para o seu e-mail.") {
                 findNavController().navigateUp()
@@ -85,7 +91,6 @@ class RightMessageDialog : DialogFragment {
     override fun onDestroy() {
         super.onDestroy()
 
-/*
         if (message == "Cadastro adicionado") {
             activity?.let {
                 val intent = Intent(it, HomeActivity::class.java)
@@ -99,7 +104,7 @@ class RightMessageDialog : DialogFragment {
                 it.startActivity(intent)
                 it.finishAffinity()
             }
-        }*/
+        }
         if (message == "As instruções para alteração de senha foram enviadas para o seu e-mail.") {
             findNavController().navigateUp()
         }

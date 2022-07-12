@@ -1,11 +1,10 @@
-package br.com.app5m.mulheremfoco.dialog
+package br.com.app5m.mulheremfoco.ui.dialog
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
 
 import br.com.app5m.mulheremfoco.R
 import br.com.app5m.mulheremfoco.helper.DialogClickListener

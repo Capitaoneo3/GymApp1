@@ -18,13 +18,15 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.navigation.fragment.findNavController
 import br.com.app5m.mulheremfoco.R
+import br.com.app5m.mulheremfoco.controler.CompileByCepControl
 import br.com.app5m.mulheremfoco.helper.DialogClickListener
 import br.com.app5m.mulheremfoco.helper.Preferences
 import br.com.app5m.mulheremfoco.helper.ValidationHelper
-import br.com.app5m.mulheremfoco.dialog.AtentionMessageDialog
-import br.com.app5m.mulheremfoco.dialog.RightMessageDialog
+import br.com.app5m.mulheremfoco.ui.dialog.AtentionMessageDialog
+import br.com.app5m.mulheremfoco.ui.dialog.RightMessageDialog
 import com.github.rtoshiro.util.format.SimpleMaskFormatter
 import com.github.rtoshiro.util.format.text.MaskTextWatcher
+import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import kotlinx.android.synthetic.main.fragment_sigin_up.*
 import java.io.IOException
@@ -34,7 +36,7 @@ import java.util.*
 class SiginUpFrag : Fragment() {
     var geocoder: Geocoder? = null
     var addresses: List<Address> = emptyList()
-//    var addressModel = br.com.app5m.skipitrestaurantes.model.Address()
+    var addressModel = br.com.app5m.mulheremfoco.model.Address()
 
 
     private var isValidZip: Boolean = false
@@ -43,7 +45,7 @@ class SiginUpFrag : Fragment() {
 
 //    private var preferences: Preferences? = null
 
-//    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
 
     private lateinit var builder: AlertDialog.Builder
@@ -79,7 +81,7 @@ class SiginUpFrag : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        preferences = Preferences(requireContext())
+//        preferences = Preferences(requireContext())
 
 
 
@@ -92,12 +94,12 @@ class SiginUpFrag : Fragment() {
     }
 
     private fun abrirTermos() {
-        val intent = Intent(view?.context, TermsAct::class.java)
-        view?.getContext()?.startActivity(intent)
+       /* val intent = Intent(view?.context, TermsAct::class.java)
+        view?.getContext()?.startActivity(intent)*/
     }
 
     fun getLastKnownLocation() {
-        preferences?.clearUserLocation()
+//        preferences?.clearUserLocation()
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
 
@@ -160,12 +162,12 @@ class SiginUpFrag : Fragment() {
 
                         cep_et.setText(postalCode.toString())
 
-                        addressModel.latitude = latitude.toString()
-                        addressModel.longitude = longitude.toString()
+                  /*      addressModel.latitude = latitude.toString()
+                        addressModel.longitude = longitude.toString()*/
 //                        locationUser.address = address
 //                        locationUser.country = country
 
-                        preferences?.setUserLocation(addressModel)
+//                        preferences?.setUserLocation(addressModel)
                     } catch (e: IOException) {
                         isValidZip = false
                         cep_et.error = "Não foi possível achar o CEP."
@@ -267,7 +269,7 @@ class SiginUpFrag : Fragment() {
                                 address_et.setText(cep.logradouro)
                                 complemento_et.setText(cep.complement)
 
-                                preferences?.setUserLocation(addressModel)
+//                                preferences?.setUserLocation(addressModel)
                             }
 
 
@@ -302,20 +304,21 @@ class SiginUpFrag : Fragment() {
 
 
      updateData.setOnClickListener {
+         dialogshowRight("Cadastro adicionado com sucesso.")
 
+//            val userL = preferences?.getUserLocation()
 
-            val userL = preferences?.getUserLocation()
+//            Log.d("TAG", userL.toString())
+//            if (!validation()) return@setOnClickListener
 
-            Log.d("TAG", userL.toString())
-            if (!validation()) return@setOnClickListener
-
-            val user = UserItem()
+   /*         val user = UserItem()
 
             user.nome = name.text.toString()
             user.email = email.text.toString()
             user.password = password.text.toString()
             user.celular = number.text.toString()
-
+*/
+/*
             UserControl(requireContext(), object : WSResult {
                 override fun responseUser(user: User, type: String) {
                     super.responseUser(user, type)
@@ -359,6 +362,7 @@ class SiginUpFrag : Fragment() {
 
 
             }).cadastrar(user)
+*/
 
         }
 

@@ -70,5 +70,18 @@ dependencies {
     //daimajia
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
 
+    implementation 'com.github.santalu:mask-edittext:1.1.1'
+
+    implementation 'com.github.rtoshiro.mflibrary:mflibrary:1.0.0'
+
+
+    // define any required OkHttp artifacts without version
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.0"))
+    implementation("com.squareup.okhttp3:logging-interceptor")
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.google.code.gson:gson:2.8.9'
 
 }
