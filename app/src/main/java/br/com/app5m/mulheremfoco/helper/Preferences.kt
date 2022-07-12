@@ -1,7 +1,8 @@
 package br.com.app5m.mulheremfoco.helper
 
 import android.content.Context
-
+import br.com.app5m.mulheremfoco.model.Address
+import com.google.gson.Gson
 
 
 class Preferences(context: Context?) {
@@ -17,11 +18,11 @@ class Preferences(context: Context?) {
     private var preferences = context?.getSharedPreferences("high.preference", 0)
     private var editor = preferences?.edit()
 
- /*   fun setUserData(user: UserItem?) {
+/*    fun setUserData(user: UserItem?) {
         val data = Gson().toJson(user)
         editor?.putString("getUserData", data)
         editor?.commit()
-    }
+    }*/
     fun clearUserLocation(){
         editor?.remove("location")
         editor?.commit()
@@ -42,15 +43,6 @@ class Preferences(context: Context?) {
     }
 
 
-    fun getUserData(): UserItem? {
-        val user: UserItem
-        val gson = Gson()
-        val data = preferences?.getString("getUserData", "")
-        return if (data != null && data.isNotEmpty()) {
-            user = gson.fromJson(data, UserItem::class.java)
-            user
-        } else null
-    }*/
 
 
 

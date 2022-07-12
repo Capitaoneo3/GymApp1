@@ -41,17 +41,17 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/main_appbar"
+            android:theme="@style/AppTheme.AppBarOverlay"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/main_toolbar"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
                 android:layout_width="match_parent"
-
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/white"
-
                 />
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -62,7 +62,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:defaultNavHost="true"
-            app:navGraph="@navigation/intro_nav"
+            app:navGraph="@navigation/login_nav"
 
             />
 

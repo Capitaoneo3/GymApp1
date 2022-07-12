@@ -4,38 +4,38 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-        <string-array name="FoodOf">
-            <item>Tipo de comida 1</item>
-            <item>Tipo de comida 2</item>
-            <item>Tipo de comida 3</item>
-            <item>Tipo de comida 4</item>
-        </string-array>
-        <string-array name="ValueOf">
-            <item><b>10</b>R$ até <b>50</b>R$</item>
-            <item><b>50</b>R$ até <b>100</b>R$</item>
-            <item><b>100</b>R$ até <b>200</b>R$</item>
-            <item><b>200</b>R$ até <b>300</b>R$</item>
+    <string-array name="FoodOf">
+        <item>Tipo de comida 1</item>
+        <item>Tipo de comida 2</item>
+        <item>Tipo de comida 3</item>
+        <item>Tipo de comida 4</item>
+    </string-array>
+    <string-array name="ValueOf">
+        <item><b>10</b>R$ até <b>50</b>R$</item>
+        <item><b>50</b>R$ até <b>100</b>R$</item>
+        <item><b>100</b>R$ até <b>200</b>R$</item>
+        <item><b>200</b>R$ até <b>300</b>R$</item>
 
-        </string-array>
-        <string-array name="HourOf">
-            <item>09:00 até 12:00</item>
-            <item>12:00 até 18:00</item>
-            <item>18:00 até 00:00</item>
-            <item>00:00 até 03:00</item>
-            <item>03:00 até 06:00</item>
-        </string-array>
-        <string name="lorem_ipsum_0.1p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pharetra risus at est eleifend venenatis. Duis volutpat fermentum lorem eget convallis. Fusce rutrum tincidunt lorem, in ultrices orci pharetra a. Cras vitae orci sit amet urna tempor dapibus. </string>
-        <!-- Strings related to login -->
-        <string name="prompt_email">Email</string>
-        <string name="prompt_password">Senha</string>
-        <string name="action_sign_in">Sign in or register</string>
-        <string name="action_sign_in_short">Sign in</string>
-        <string name="welcome">"Welcome!"</string>
-        <string name="invalid_username">Not a valid username</string>
-        <string name="invalid_password">Password must be >5 characters</string>
-        <string name="login_failed">"Login failed"</string>
+    </string-array>
+    <string-array name="HourOf">
+        <item>09:00 até 12:00</item>
+        <item>12:00 até 18:00</item>
+        <item>18:00 até 00:00</item>
+        <item>00:00 até 03:00</item>
+        <item>03:00 até 06:00</item>
+    </string-array>
+    <string name="lorem_ipsum_0.1p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pharetra risus at est eleifend venenatis. Duis volutpat fermentum lorem eget convallis. Fusce rutrum tincidunt lorem, in ultrices orci pharetra a. Cras vitae orci sit amet urna tempor dapibus. </string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Senha</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 
-        <string name="large_text">
+    <string name="large_text">
         "Material is the metaphor.\n\n"
 
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."
@@ -124,39 +124,39 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-        <string name="title_activity_start2">Start2Act</string>
-        <string name="dummy_button">Dummy Button</string>
-        <string name="dummy_content">DUMMY\nCONTENT</string>
-        <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_activity_start2">Start2Act</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- TODO: Remove or change this placeholder text -->
 
-        <string name="must_filled_aut">deve ser preenchido(a).</string>
-        <string name="password_must_filled_aut">Senha deve ser preenchida.</string>
-        <string name="password_must_least_digits">Senha deve ter no mínimo 6 digitos.</string>
-        <string name="password_must_contain_number">Senha deve conter pelo menos um número.</string>
-        <string name="password_not_match">Senhas não coincidem.</string>
-        <string name="name_must_filled_aut">Nome deve ser preenchido.</string>
-        <string name="team_name_must_filled_aut">Nome do time deve ser preenchido.</string>
-        <string name="enter_full_name">Nome deve ser preenchido de forma completa.</string>
-        <string name="nickname_must_filled_aut">Apelido deve ser preenchido.</string>
-        <string name="name_contain_number">Nome não pode conter números.</string>
-        <string name="email_filled_aut">E-mail deve ser preenchido.</string>
-        <string name="email_incorrect">E-mail deve ser preenchido em um formato válido.</string>
+    <string name="must_filled_aut">deve ser preenchido(a).</string>
+    <string name="password_must_filled_aut">Senha deve ser preenchida.</string>
+    <string name="password_must_least_digits">Senha deve ter no mínimo 6 digitos.</string>
+    <string name="password_must_contain_number">Senha deve conter pelo menos um número.</string>
+    <string name="password_not_match">Senhas não coincidem.</string>
+    <string name="name_must_filled_aut">Nome deve ser preenchido.</string>
+    <string name="team_name_must_filled_aut">Nome do time deve ser preenchido.</string>
+    <string name="enter_full_name">Nome deve ser preenchido de forma completa.</string>
+    <string name="nickname_must_filled_aut">Apelido deve ser preenchido.</string>
+    <string name="name_contain_number">Nome não pode conter números.</string>
+    <string name="email_filled_aut">E-mail deve ser preenchido.</string>
+    <string name="email_incorrect">E-mail deve ser preenchido em um formato válido.</string>
 
 
-        <string name="balance">Saldo</string>
-        <string name="filter">Filtro</string>
-        <string name="edit_photo">Editar Foto</string>
-        <string name="choose_action">Escolha uma ação</string>
-        <string name="info_permission_team">Para adicionar uma foto a seu time é preciso aceitar as permissões</string>
-        <string name="denied_pemissions">Denied Pemissions</string>
-        <string name="team_name">Nome do time</string>
-        <string name="description">Descrição</string>
-        <string name="field">Campo</string>
-        <string name="list">Lista</string>
-        <string name="no_whatsapp">Erro ao abrir whatsapp. </string>
+    <string name="balance">Saldo</string>
+    <string name="filter">Filtro</string>
+    <string name="edit_photo">Editar Foto</string>
+    <string name="choose_action">Escolha uma ação</string>
+    <string name="info_permission_team">Para adicionar uma foto a seu time é preciso aceitar as permissões</string>
+    <string name="denied_pemissions">Denied Pemissions</string>
+    <string name="team_name">Nome do time</string>
+    <string name="description">Descrição</string>
+    <string name="field">Campo</string>
+    <string name="list">Lista</string>
+    <string name="no_whatsapp">Erro ao abrir whatsapp. </string>
 
-        <string name="default_notification_channel_id">fcm_default_channel</string>
-        <string name="gps_network_not_enabled">Localização desabilitada.</string>
-        <string name="open_location_settings" >Abrir configuração de localização?</string>
-        <string name="Cancel">Cancelar</string>
+    <string name="default_notification_channel_id">fcm_default_channel</string>
+    <string name="gps_network_not_enabled">Localização desabilitada.</string>
+    <string name="open_location_settings">Abrir configuração de localização?</string>
+    <string name="Cancel">Cancelar</string>
 </resources>

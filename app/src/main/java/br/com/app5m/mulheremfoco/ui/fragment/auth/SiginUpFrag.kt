@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,8 +18,6 @@ import androidx.core.app.ActivityCompat
 import androidx.navigation.fragment.findNavController
 import br.com.app5m.mulheremfoco.R
 import br.com.app5m.mulheremfoco.controler.CompileByCepControl
-import br.com.app5m.mulheremfoco.helper.DialogClickListener
-import br.com.app5m.mulheremfoco.helper.Preferences
 import br.com.app5m.mulheremfoco.helper.ValidationHelper
 import br.com.app5m.mulheremfoco.ui.dialog.AtentionMessageDialog
 import br.com.app5m.mulheremfoco.ui.dialog.RightMessageDialog
@@ -69,14 +66,7 @@ class SiginUpFrag : Fragment() {
         }
 
 
-        updateData.setOnClickListener {
 
-            activity?.let {
-                val intent = Intent(it, HomeActivity::class.java)
-                it.startActivity(intent)
-                it.finishAffinity()
-            }
-        }
     }
     override fun onResume() {
         super.onResume()
@@ -303,7 +293,7 @@ class SiginUpFrag : Fragment() {
 
 
 
-     updateData.setOnClickListener {
+     confirm.setOnClickListener {
          dialogshowRight("Cadastro adicionado com sucesso.")
 
 //            val userL = preferences?.getUserLocation()

@@ -10,6 +10,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import br.com.app5m.mulheremfoco.R
 import br.com.app5m.mulheremfoco.helper.DialogClickListener
+import br.com.app5m.mulheremfoco.ui.activity.HomeActivity
 import kotlinx.android.synthetic.main.dialog_right_message.*
 
 

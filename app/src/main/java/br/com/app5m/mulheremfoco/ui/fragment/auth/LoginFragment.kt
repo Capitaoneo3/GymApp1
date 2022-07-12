@@ -70,11 +70,11 @@ class LoginFragment : Fragment() {
             }
         }
         termsTv.setOnClickListener {
-//            findNavController().navigate(R.id.action_loginFragment_to_siginUpFrag)
+            findNavController().navigate(R.id.action_loginFragment_to_siginUpFrag)
 
         }
         recoverPassTv.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_recoverPassFrag)
+            findNavController().navigate(R.id.action_loginFragment_to_recoverPassFrag2)
         }
         loginBt.setOnClickListener {
             dialogshowRight("Login efetuado com sucesso.")

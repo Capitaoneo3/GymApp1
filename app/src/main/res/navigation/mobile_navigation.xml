@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation.xml"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="br.com.app5m.mulheremfoco.ui.fragment.main.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/diaryFragment"
+        android:name="br.com.app5m.mulheremfoco.ui.fragment.main.home.DiaryFragment"
+        android:label="fragment_diary"
+        tools:layout="@layout/fragment_diary" />
+    <fragment
+        android:id="@+id/foodPlanFragment"
+        android:name="br.com.app5m.mulheremfoco.ui.fragment.main.home.FoodPlanFragment"
+        android:label="fragment_food_plan"
+        tools:layout="@layout/fragment_food_plan" />
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="br.com.app5m.mulheremfoco.ui.fragment.main.home.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+</navigation>

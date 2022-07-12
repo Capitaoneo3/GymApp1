@@ -11,22 +11,27 @@
         <item name="colorOnSecondary">@color/primary</item>
         <item name="android:windowBackground">@color/primary</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="android:textColor" >@color/textColor</item>
         <item name="android:fontFamily" >@font/sfprodisplay_regular</item>
 
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+        <item name="android:navigationBarColor">@color/trasparent</item>
+        <item name="android:statusBarColor">@color/colorGrayBackground</item>
+        <item name="android:titleTextColor">@color/white</item>
     </style>
 
 
     <!-- Define other styles to fix theme -->
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" >
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark" >
         <item name="tint">@color/colorAccent</item>
         <item name="elevation">0dp</item>
+        <item name="background">@color/colorGrayBackground</item>
         <item name="android:elevation">0dp</item>
 
     </style>
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" >
         <item name="elevation">0dp</item>
         <item name="android:elevation">0dp</item>
     </style>
@@ -108,16 +113,22 @@
     <style name="EditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">50dp</item>
         <item name="android:background">@drawable/rounded_border_edittext</item>
         <item name="android:drawablePadding">10dp</item>
         <item name="android:drawableTint">@color/secundary</item>
         <item name="android:selectAllOnFocus">true</item>
     </style>
     -
-    <style name="button1">
+
+    <style name="SomeButtonTheme" >
+        <item name="colorControlHighlight">@color/white</item>
+    </style>
+
+    <style name="button1" >
         <item name="android:layout_marginStart">24dp</item>
         <item name="android:layout_marginEnd">24dp</item>
-        <item name="android:textColor">@color/textColor2</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:background">@drawable/shape_button_degrade</item>
         <item name="android:fontFamily">@font/sfprodisplay_medium</item>
         <item name="iconGravity">textStart</item>
@@ -341,9 +352,9 @@
     <style name="Theme.InstitutoBlindarAndroid.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-<!--        <item name="boxStrokeColor">@color/appOrange2</item>-->
+<!--        <item name="boxStrokeColor">@color/acent</item>-->
         <item name="boxStrokeWidth">2dp</item>
-<!--        <item name="android:textColorHint">@color/appOrange2</item>-->
+<!--        <item name="android:textColorHint">@color/acent</item>-->
     </style>
 
 </resources>

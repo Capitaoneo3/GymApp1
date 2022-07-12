@@ -1,4 +1,4 @@
-package br.com.app5m.skipitrestaurantes.controller.webservice
+package br.com.app5m.mulheremfoco.controler.webservice
 
 object WSConstants {
 

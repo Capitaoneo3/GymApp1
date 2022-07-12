@@ -3,7 +3,7 @@ package br.com.app5m.mulheremfoco.controler
 
 import br.com.app5m.mulheremfoco.controler.webservice.WebService
 import br.com.app5m.mulheremfoco.model.Address
-import br.com.app5m.skipitrestaurantes.controller.webservice.WSConstants
+import br.com.app5m.mulheremfoco.controler.webservice.WSConstants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
