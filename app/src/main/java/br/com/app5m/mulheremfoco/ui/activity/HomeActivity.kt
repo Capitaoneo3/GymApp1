@@ -86,7 +86,7 @@ class HomeActivity : AppCompatActivity() {
             R.id.diaryFragment, R.id.foodPlanFragment, R.id.menuFragment
         ) //Pass the ids of fragments from nav_graph which you d'ont want to show back button in toolbar
             .build()
-        setSupportActionBar(binding.mainToolbar) //Set toolba
+        setSupportActionBar(binding.homeActToolbar) //Set toolba
 
 
         setupActionBarWithNavController(
@@ -197,7 +197,7 @@ class HomeActivity : AppCompatActivity() {
                 R.id.homeFragment -> {
                     supportActionBar?.setDisplayShowTitleEnabled(false)
                     showActionBarLogoFade(this, true)
-//                    binding.mainToolbar.visibility = View.GONE
+//                    binding.homeActToolbar.visibility = View.GONE
 
 
                     showBothNavigation()
@@ -222,7 +222,7 @@ class HomeActivity : AppCompatActivity() {
                 showBothNavigation()
             }
                 else -> {
-                    binding.mainToolbar.visibility = View.VISIBLE
+                    binding.homeActToolbar.visibility = View.VISIBLE
 
 
                     showActionBarLogoFade(this, false)
@@ -311,7 +311,7 @@ class HomeActivity : AppCompatActivity() {
                 override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
                     val layers = arrayOfNulls<Drawable>(2)
                     layers[0] =
-                        ColorDrawable(resources.getColor(R.color.primary)) // Background color of Action bar
+                        ColorDrawable(resources.getColor(R.color.secundary)) // Background color of Action bar
                     val bd = BitmapDrawable(activity.resources, bitmap)
                     bd.gravity = Gravity.CENTER
                     val drawLogo: Drawable = bd

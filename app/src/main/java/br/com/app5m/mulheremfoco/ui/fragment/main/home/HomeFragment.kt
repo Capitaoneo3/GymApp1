@@ -26,7 +26,7 @@ import br.com.app5m.mulheremfoco.ui.dialog.AtentionMessageDialog
 import br.com.app5m.mulheremfoco.ui.dialog.RightMessageDialog
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.custom_toolbar.*
 
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -93,7 +93,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        findNavController().navigate(R.id.action_homeFragment_to_trainingDetailFragment)
         swiperefresh.setOnRefreshListener {
             createCategories()
             createRestaurants()
@@ -584,7 +584,7 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        requireActivity().main_toolbar.visibility = View.VISIBLE
+//        requireActivity().homeAct_appbar.visibility = View.VISIBLE
         _binding = null
     }
 }
