@@ -41,18 +41,16 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/main_appbar"
-            android:theme="@style/AppTheme.AppBarOverlay"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone">
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:visibility="visible">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/main_toolbar"
-                app:popupTheme="@style/AppTheme.PopupOverlay"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                />
+                app:titleTextColor="@color/white" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <fragment

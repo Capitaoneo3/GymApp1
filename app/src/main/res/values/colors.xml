@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--PROJECT-->
-    <color name="primary">#1A1A1A</color>
+    <color name="primary">#FFFFFF</color>
     <color name="textColor2">@color/white</color>
-    <color name="secundary">#E8DBD2</color>
+    <color name="secundary">#1A1A1A</color>
     <color name="colorAccent">@color/white</color>
-    <color name="textColor">#D1CAC6</color>
+    <color name="textColor">#E8DBD2</color>
     <color name="defaultOutlineAmbientShadowColor">#040609</color>
     <color name="defaultOutlineSpotShadowColor">#2B3B5C</color>
 
     <color name="colorGrayHintBorder">#E8DBD2</color>
     <color name="colorGrayBackground">#232323</color>
+    <color name="colorGrayBackground2">#999896</color>
 
 
 

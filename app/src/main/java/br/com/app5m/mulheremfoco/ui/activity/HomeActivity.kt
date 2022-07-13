@@ -114,10 +114,10 @@ class HomeActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.homeFragment) {
-                menuItemNotify.setVisible(false)
+                menuItemNotify.setVisible(true)
                 supportActionBar?.setDisplayHomeAsUpEnabled(false)
-                var mActionBarView: View? =
-                    layoutInflater.inflate(R.layout.custom_action_item_search_layout, null)
+          /*      var mActionBarView: View? =
+                    layoutInflater.inflate(R.layout.custom_action_item_search_layout, null)*/
 //                supportActionBar?.customView = mActionBarView
 //                menuItemSearch.setVisible(true)
             } else {
@@ -253,7 +253,7 @@ class HomeActivity : AppCompatActivity() {
                 override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
                     val layers = arrayOfNulls<Drawable>(2)
                     layers[0] =
-                        ColorDrawable(resources.getColor(R.color.primary)) // Background color of Action bar
+                        ColorDrawable(resources.getColor(R.color.secundary)) // Background color of Action bar
                     val bd = BitmapDrawable(activity.resources, bitmap)
                     bd.gravity = Gravity.CENTER
                     val drawLogo: Drawable = bd

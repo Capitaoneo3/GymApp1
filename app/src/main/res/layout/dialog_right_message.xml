@@ -35,16 +35,15 @@
                 android:textSize="16sp" />
 
             <Button
-                style="@style/button1"
-
                 android:id="@+id/coseBt"
+
+                style="@style/button1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="58dp"
                 android:layout_marginEnd="24dp"
-                android:text="Fechar"
-                android:textColor="@color/white" />
+                android:text="Fechar" />
 
 
         </LinearLayout>

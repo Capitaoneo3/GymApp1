@@ -30,7 +30,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.custom_toolbar.*
 
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_home.restaurantsRv
 import java.io.IOException
 import java.util.*
 
@@ -331,10 +330,10 @@ class HomeFragment : Fragment() {
 
     @SuppressLint("ClickableViewAccessibility")
     fun clicks() {
-        notifyBt.setOnClickListener {
+/*        notifyBt.setOnClickListener {
 //            findNavController().navigate(R.id.action_homeFragment_to_notifyFragment)
-        }
-        adressTextHome.setOnClickListener {
+        }*/
+/*        adressTextHome.setOnClickListener {
             if (preferences?.getLogin() == true) {
                 if (isAdded){
                     Message.msg(
@@ -351,17 +350,17 @@ class HomeFragment : Fragment() {
                 goLogin()
             }
             return@setOnClickListener
-        }
-        searchBt.setOnClickListener {
+        }*/
+      /*  searchBt.setOnClickListener {
             var name = editTextSearchRest.text.toString()
 
-        }
+        }*/
 
 
 
 
 
-        editTextSearchRest.setOnKeyListener(object : View.OnKeyListener {
+/*        editTextSearchRest.setOnKeyListener(object : View.OnKeyListener {
             override fun onKey(v: View?, keyCode: Int, event: KeyEvent?): Boolean {
                 if (keyCode == KeyEvent.KEYCODE_ENTER && event?.getAction() == KeyEvent.ACTION_DOWN) {
                     var name = editTextSearchRest.text.toString()
@@ -369,7 +368,7 @@ class HomeFragment : Fragment() {
                 }
                 return false
             }
-        })
+        })*/
 
 
 
@@ -476,10 +475,10 @@ class HomeFragment : Fragment() {
 
                                         if (!preferences?.getUserLocation()?.address.isNullOrEmpty()) {
 
-                                            adressTextHome.text = preferences?.getUserLocation()?.address
+//                                            adressTextHome.text = preferences?.getUserLocation()?.address
                                         } else {
                                             preferences?.setUserLocation(locationUser)
-                                            adressTextHome.text = preferences?.getUserLocation()?.address
+//                                            adressTextHome.text = preferences?.getUserLocation()?.address
 
 //                                            adressTextHome.text = cep.logradouro
 
