@@ -34,9 +34,9 @@ class TrainingDetailFragment : Fragment() {
 
 
          videoview = videoViewXml as VideoView
-        val uri: Uri =
+     /*   val uri: Uri =
             Uri.parse("android.resource://" + requireContext().packageName.toString() + "/" + R.raw.woman_on_gym)
-        videoview.setVideoURI(uri)
+        videoview.setVideoURI(uri)*/
 //        videoview.start()
 
 
@@ -44,7 +44,7 @@ class TrainingDetailFragment : Fragment() {
 
 
         jzvdStd.setUp(
-            "https://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4",
+            "https://github.com/Capitaoneo3/GymApp1/blob/master/app/src/main/res/raw/woman_on_gym.mp4?raw=true",
             "Título"
         )
         jzvdStd.posterImageView.setImageResource(R.drawable.logo_mulher_ef)
