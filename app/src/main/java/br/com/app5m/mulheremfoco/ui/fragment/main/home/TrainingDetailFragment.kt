@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import android.widget.VideoView
 import androidx.fragment.app.Fragment
 import br.com.app5m.mulheremfoco.R
-import cn.jzvd.JZDataSource
-import cn.jzvd.Jzvd
-import cn.jzvd.JzvdStd
+import cn.jzvd.*
 import kotlinx.android.synthetic.main.fragment_training_detail.*
+import kotlinx.android.synthetic.main.fragment_training_detail.view.*
+import org.jzvd.jzvideo.JZVideoA
 import java.io.File
 import java.lang.reflect.Executable
 
@@ -44,7 +44,7 @@ class TrainingDetailFragment : Fragment() {
 
 
         jzvdStd.setUp(
-            "https://github.com/Capitaoneo3/GymApp1/blob/master/app/src/main/res/raw/woman_on_gym.mp4?raw=true",
+            "https://github.com/Capitaoneo3/GymApp1/blob/7aa3095ccd7c8775f52e73960ad42e88b7f002f9/app/src/main/res/raw/woman_on_gym.mp4?raw=true",
             "Título"
         )
         jzvdStd.posterImageView.setImageResource(R.drawable.logo_mulher_ef)
@@ -67,25 +67,31 @@ class TrainingDetailFragment : Fragment() {
 
 
 
-
         midiaButton.setOnClickListener {
-            if (jzvdStd.mediaInterface.isPlaying){
-                pause()
-                midiaButton.setImageResource(R.drawable.ic_baseline_pause_24)
+            try {
+                if ( jzvdStd.mediaInterface.isPlaying){
+                    pause()
+                    midiaButton.setImageResource(R.drawable.ic_baseline_pause_24)
 
-                jzvdStd.mediaInterface.pause()
+                    jzvdStd.mediaInterface.pause()
 
-            }else{
-                play()
-                midiaButton.setImageResource(R.drawable.ic_baseline_play_arrow_24)
+                }else{
+                    play()
+                    midiaButton.setImageResource(R.drawable.ic_baseline_play_arrow_24)
 
-                jzvdStd.mediaInterface.start()
+                    jzvdStd.mediaInterface.start()
 
+
+                }
+            }catch (e:Exception){
+                e
+                jzvdStd.mediaInterface.prepare()
+                jzvdStd.startVideo()
 
             }
 
 
-
+            jzvdStd.onStateAutoComplete()
 
          /*   if (videoview.isPlaying){
                 pause()
