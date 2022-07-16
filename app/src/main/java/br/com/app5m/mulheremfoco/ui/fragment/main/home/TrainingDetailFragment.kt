@@ -5,19 +5,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.VideoView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import br.com.app5m.mulheremfoco.R
-import cn.jzvd.*
+import br.com.app5m.mulheremfoco.helper.RecyclerItemClickListener
+import br.com.app5m.mulheremfoco.model.category.CategorySubList
+import br.com.app5m.mulheremfoco.model.category.CategorySubListItem
+import br.com.app5m.mulheremfoco.ui.adapter.CategoriesFullAdapter
+import br.com.app5m.mulheremfoco.ui.adapter.ChildCategoriesAdapter
+import br.com.app5m.mulheremfoco.ui.adapter.VideosAdapter
+import com.halilibo.bvpkotlin.BetterVideoPlayer
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_training_detail.*
-import kotlinx.android.synthetic.main.fragment_training_detail.view.*
-import org.jzvd.jzvideo.JZVideoA
-import java.io.File
-import java.lang.reflect.Executable
 
 
 class TrainingDetailFragment : Fragment() {
- lateinit  var videoview:VideoView
+ lateinit  var betterVideoPlayer: BetterVideoPlayer
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,39 +31,31 @@ class TrainingDetailFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_training_detail, container, false)
     }
+    private lateinit var categoriesAdapter: RecyclerView.Adapter<*>
+
+    private val categoryList = java.util.ArrayList<CategorySubListItem>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
+        createCategories()
+        configureCategoriesAdapter()
 
 
-         videoview = videoViewXml as VideoView
-     /*   val uri: Uri =
-            Uri.parse("android.resource://" + requireContext().packageName.toString() + "/" + R.raw.woman_on_gym)
-        videoview.setVideoURI(uri)*/
-//        videoview.start()
+         betterVideoPlayer = better_video2
 
 
-        val jzvdStd: JzvdStd = jz_video2
-
-
-        jzvdStd.setUp(
-            "https://github.com/Capitaoneo3/GymApp1/blob/7aa3095ccd7c8775f52e73960ad42e88b7f002f9/app/src/main/res/raw/woman_on_gym.mp4?raw=true",
-            "Título"
+        betterVideoPlayer.setSource(
+            Uri.parse( "https://github.com/Capitaoneo3/GymApp1/blob/7aa3095ccd7c8775f52e73960ad42e88b7f002f9/app/src/main/res/raw/woman_on_gym.mp4?raw=true")
         )
-        jzvdStd.posterImageView.setImageResource(R.drawable.logo_mulher_ef)
-//        jzvdStd.posterImageView.setImageURI(Uri.parse("http://p.qpic.cn/videoyun/0/2449_43b6f696980311e59ed467f22794e792_1/640"))
-        /*jzvdStd.backButton.setOnClickListener {
-//            Jzvd.releaseAllVideos()
 
-        }*/
-        jzvdStd.fullscreenButton.setOnClickListener {
-       /*     val intent = Intent (requireContext(), VideoFullScreenActivity::class.java)
-            requireContext().startActivity(intent)*/
-        }
         try {
-            jzvdStd.startVideo()
+            betterVideoPlayer.removeCaptions()
+            betterVideoPlayer.setAutoPlay(true)
+            midiaButton.setImageResource(R.drawable.ic_baseline_pause_24)
+
+            betterVideoPlayer.start()
 
         }catch (e:Exception){
             e
@@ -69,57 +66,143 @@ class TrainingDetailFragment : Fragment() {
 
         midiaButton.setOnClickListener {
             try {
-                if ( jzvdStd.mediaInterface.isPlaying){
+                if ( betterVideoPlayer.isPlaying()){
                     pause()
-                    midiaButton.setImageResource(R.drawable.ic_baseline_pause_24)
-
-                    jzvdStd.mediaInterface.pause()
+                    midiaButton.setImageResource(R.drawable.ic_baseline_play_arrow_24)
+                    betterVideoPlayer.pause()
 
                 }else{
                     play()
-                    midiaButton.setImageResource(R.drawable.ic_baseline_play_arrow_24)
+                    midiaButton.setImageResource(R.drawable.ic_baseline_pause_24)
 
-                    jzvdStd.mediaInterface.start()
+
+                    betterVideoPlayer.start()
 
 
                 }
             }catch (e:Exception){
                 e
-                jzvdStd.mediaInterface.prepare()
-                jzvdStd.startVideo()
 
             }
 
-
-            jzvdStd.onStateAutoComplete()
-
-         /*   if (videoview.isPlaying){
-                pause()
-                midiaButton.setImageResource(R.drawable.ic_baseline_pause_24)
-            }else{
-                play()
-                midiaButton.setImageResource(R.drawable.ic_baseline_play_arrow_24)
-
-            }*/
-
         }
 
-        videoview.setOnCompletionListener {
+
+   /*     jzvdStd.
+
+        {
             midiaButton.setImageResource(R.drawable.ic_baseline_pause_24)
+
+        }*/
+
+
+    }
+
+    fun configureCategoriesAdapter() {
+        categoriesAdapter = VideosAdapter(categoryList, object : RecyclerItemClickListener {
+            /*      override fun onClickListenerCategoriesAdapter(categorySubList: CategorySubList) {
+                      super.onClickListenerCategoriesAdapter(categorySubList)
+
+                   *//*   var bundle = bundleOf(
+                    "categorySubListArgs" to categorySubList
+                )
+                findNavController().navigate(
+                    R.id.action_homeFragment_to_restaurantDetailFragment,
+                    bundle
+                )
+*//*
+            }*/
+
+        }, requireContext())
+
+
+        val vmProduct = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
+        videosRv.apply {
+            setHasFixedSize(true)
+            setItemViewCacheSize(512)
+            categoriesAdapter.setHasStableIds(true)
+
+
+            val itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+            itemDecoration.setDrawable(
+                resources.getDrawable(
+                    R.drawable.decor_layout_no_bg_vert,
+                    null
+                )
+            )
+            var decor = this.itemDecorationCount
+            if (decor>=1){
+                this.removeItemDecorationAt(0)
+            }
+
+            /*this.addItemDecoration(
+                @SuppressLint("UseCompatLoadingForDrawables")
+                object : CustomDividerItemDecorator( resources.getDrawable(
+                    R.drawable.decor_layout_bg_vert3,
+                    null
+                )){
+
+                }
+            )*/
+
+
+
+
+            layoutManager = vmProduct
+            adapter = categoriesAdapter
+
 
         }
 
     }
 
+    fun createCategories() {
+//        buscaEstab("")
 
+        var categories = ArrayList<CategorySubList>()
+        var childCategories_1 = ArrayList<CategorySubListItem>()
+
+        childCategories_1.add(
+            CategorySubListItem(
+            title = "teste", image = R.drawable.thumbnail1, duration = "00:02 min",
+
+            )
+        )
+        childCategories_1.add(
+            CategorySubListItem(
+            title = "teste2", image = R.drawable.thumbnail2, duration = "00:10 min",
+
+            )
+        )
+        childCategories_1.add(
+            CategorySubListItem(
+            title = "teste3", image = R.drawable.thumbnail3, duration = "00:05 min",
+
+            )
+        )
+        childCategories_1.add(
+            CategorySubListItem(
+            title = "teste4", image = R.drawable.thumbnail4, duration = "00:16 min",
+
+            )
+        )
+        childCategories_1.add(
+            CategorySubListItem(
+            title = "teste5", image = R.drawable.thumbnail5, duration = "00:30 min",
+
+            )
+        )
+
+
+        categoryList.addAll(childCategories_1)
+    }
 
 
     override fun onDestroy() {
         super.onDestroy()
-        Jzvd.releaseAllVideos()
+        betterVideoPlayer.release()
 
-        videoview.destroyDrawingCache()
-        videoview.removeCallbacks {  }
     }
 
     override fun onPause() {
@@ -133,11 +216,21 @@ class TrainingDetailFragment : Fragment() {
     }
 
   private  fun play(){
-    if  (::videoview.isInitialized)   videoview.start()
+    if  (::betterVideoPlayer.isInitialized){
+        betterVideoPlayer.start()
+        betterVideoPlayer.hideControls()
+
+
+    }
     }
 
   private  fun pause(){
-      if  (::videoview.isInitialized)     videoview.pause()
+
+      if  (::betterVideoPlayer.isInitialized) {
+          betterVideoPlayer.pause()
+          betterVideoPlayer.hideControls()
+
+      }
 
 
     }

@@ -4,21 +4,15 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.com.app5m.mulheremfoco.R
 import br.com.app5m.mulheremfoco.helper.RecyclerItemClickListener
 import br.com.app5m.mulheremfoco.model.category.CategorySubListItem
-import com.bumptech.glide.Glide
 
 
-class ChildCategoriesAdapter (private val categoryList: List<CategorySubListItem>, val clickListener: RecyclerItemClickListener, context: Context):
-    RecyclerView.Adapter<ChildCategoriesAdapter.CategoriesChildHolder>() {
+class VideosAdapter (private val categoryList: List<CategorySubListItem>, val clickListener: RecyclerItemClickListener, context: Context):
+    RecyclerView.Adapter<VideosAdapter.CategoriesHoriHolder>() {
 
     val context = context
     private val viewPool = RecyclerView.RecycledViewPool()
@@ -28,24 +22,25 @@ class ChildCategoriesAdapter (private val categoryList: List<CategorySubListItem
 
     private var screenWidth = 0
 
-    class CategoriesChildHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val name: TextView = itemView.findViewById(R.id.title)
+    class CategoriesHoriHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+      /*  val name: TextView = itemView.findViewById(R.id.title)
         val image: ImageView = itemView.findViewById(R.id.image)
-        val constraintSalvation: ConstraintLayout = itemView.findViewById(R.id.constraintSalvation)
+        val frameLayout: FrameLayout = itemView.findViewById(R.id.frameChildLL)*/
+
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesChildHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesHoriHolder {
         /*   val displayMetrics = DisplayMetrics()
            (context as HomeActivity).windowManager.getDefaultDisplay().getMetrics(displayMetrics)
            screenWidth = displayMetrics.widthPixels*/
 
-        return CategoriesChildHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.adapter_child_categories, parent, false)
+        return CategoriesHoriHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.adapter_video, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: CategoriesChildHolder, position: Int) {
+    override fun onBindViewHolder(holder: CategoriesHoriHolder, position: Int) {
         val categoryItem = categoryList[position]
 /*        val itemWidth = screenWidth / 5.33
         val lp = holder.frameLayout.layoutParams
@@ -53,7 +48,7 @@ class ChildCategoriesAdapter (private val categoryList: List<CategorySubListItem
         lp.width = itemWidth.toInt()*/
 
 
-        Glide
+      /*  Glide
             .with(context)
             .load(categoryItem.image)
             .error(R.drawable.logo_mulher_ef)
@@ -61,8 +56,8 @@ class ChildCategoriesAdapter (private val categoryList: List<CategorySubListItem
             .into(holder.image)
 
 
-        holder.name.text = categoryItem.title
-        holder.constraintSalvation.setOnClickListener{ view ->
+        holder.name.text = categoryItem.title*/
+        holder.itemView.setOnClickListener{ view ->
             view.findNavController().navigate(R.id.action_homeFragment_to_trainingDetailFragment)
         }
         holder.itemView.setOnClickListener { clickListener.onClickListenerCategoriesAdapter(categoryItem) }

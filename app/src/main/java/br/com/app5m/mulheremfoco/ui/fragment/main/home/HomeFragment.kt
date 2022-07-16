@@ -20,18 +20,21 @@ import br.com.app5m.mulheremfoco.controler.CompileByCepControl
 import br.com.app5m.mulheremfoco.databinding.FragmentHomeBinding
 import br.com.app5m.mulheremfoco.helper.Message
 import br.com.app5m.mulheremfoco.helper.Preferences
+import br.com.app5m.mulheremfoco.helper.RecyclerItemClickListener
+import br.com.app5m.mulheremfoco.model.category.CategorySubList
+import br.com.app5m.mulheremfoco.model.category.CategorySubListItem
 import br.com.app5m.mulheremfoco.ui.activity.MainActivity
+import br.com.app5m.mulheremfoco.ui.adapter.CategoriesFullAdapter
 
 import br.com.app5m.mulheremfoco.ui.dialog.AtentionMessageDialog
 import br.com.app5m.mulheremfoco.ui.dialog.RightMessageDialog
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.custom_toolbar.*
 
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.io.IOException
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class HomeFragment : Fragment() {
@@ -50,12 +53,10 @@ class HomeFragment : Fragment() {
     private lateinit var builder: AlertDialog.Builder
 
     private var _binding: FragmentHomeBinding? = null
-    private lateinit var restaurantAdapter: RecyclerView.Adapter<*>
     private lateinit var categoriesAdapter: RecyclerView.Adapter<*>
 
-/*    private val restaurantList = java.util.ArrayList<RestaurantSubListItem>()
-    private val restaurantListB = java.util.ArrayList<RestaurantSubListItem>()
-    private val categoriesList = java.util.ArrayList<CategoryItem>()*/
+    private val categoryList = java.util.ArrayList<CategorySubList>()
+
 
     private val binding get() = _binding!!
 
@@ -77,7 +78,8 @@ class HomeFragment : Fragment() {
         super.onResume()
 
         if (findNavController().currentDestination?.id == R.id.homeFragment){
-            getLastKnownLocationAndStart()
+//            getLastKnownLocationAndStart()
+            configureInitialViews()
 
             return
         }
@@ -87,16 +89,13 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         createCategories()
-        createRestaurants()
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        findNavController().navigate(R.id.action_homeFragment_to_trainingDetailFragment)
         swiperefresh.setOnRefreshListener {
             createCategories()
-            createRestaurants()
             swiperefresh.isRefreshing = false
 
         }
@@ -114,66 +113,11 @@ class HomeFragment : Fragment() {
         builder = AlertDialog.Builder(requireContext())
         alertDialog = builder.create()
         clicks()
-        configureCategoriessAdapter()
-        configureRestaurantsAdapter()
+        configureCategoriesAdapter()
 
 
     }
 
-    fun configureRestaurantsAdapter() {
-/*
-        restaurantAdapter = Restaurant_adapter(restaurantList, object : RecyclerItemClickListener {
-
-            override fun onClickListenerRestaurantAdapter(restaurant: RestaurantSubListItem) {
-                super.onClickListenerRestaurantAdapter(restaurant)
-
-                var bundle = bundleOf(
-                    "restaurantArgs" to restaurant
-                )
-                findNavController().navigate(
-                    R.id.action_homeFragment_to_restaurantDetailFragment,
-                    bundle
-                )
-
-            }
-
-        }, requireContext())
-*/
-
-
-        val vmProduct = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
-/*
-        restaurantsRv.apply {
-            setHasFixedSize(true)
-            setItemViewCacheSize(512)
-            restaurantAdapter.setHasStableIds(true)
-
-
-            val itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-            itemDecoration.setDrawable(
-                resources.getDrawable(
-                    R.drawable.decor_layout_no_bg_vert,
-                    null
-                )
-            )
-            var decor = restaurantsRv.itemDecorationCount
-            if (decor >= 1) {
-                restaurantsRv.removeItemDecorationAt(0)
-            }
-            restaurantsRv.addItemDecoration(itemDecoration)
-
-
-
-
-            layoutManager = vmProduct
-            adapter = restaurantAdapter
-
-
-        }
-*/
-
-    }
 
 /*
     private fun saveAddress() {
@@ -252,127 +196,9 @@ class HomeFragment : Fragment() {
     }
 */
 
-    fun createCategories() {
-
-/*        CategoryControl(requireContext(),object :WSResult{
-            override fun responseCategory(category: Category, type: String) {
-                super.responseCategory(category, type)
-                categoriesList.clear()
-
-                categoriesList.addAll(category)
-                if (::categoriesAdapter.isInitialized) categoriesAdapter.notifyDataSetChanged()
-            }
-            override fun error(error: String) {
-                super.error(error)
-                dialogshowAtention(error)
-            }
-        }).listCategories()*/
-
-
-
-    }
-
-
-    fun configureCategoriessAdapter() {
-/*        categoriesAdapter = CategoriesHori(categoriesList, object : RecyclerItemClickListener {
-            override fun onClickListenerCategoryAdapter(categoryItem: CategoryItem) {
-                super.onClickListenerCategoryAdapter(categoryItem)
-                var bundle = bundleOf(
-                    "id_categoria" to categoryItem.id,"nome_categoria" to categoryItem.nome
-                )
-
-
-                findNavController().navigate(R.id.action_homeFragment_to_restaurantFragment,bundle)
-            }
-
-
-
-        }, requireContext())*/
-
-
-        val vmProduct = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-
-/*
-        categoriesRv.apply {
-            setHasFixedSize(true)
-            setItemViewCacheSize(512)
-            categoriesAdapter.setHasStableIds(true)
-
-            val dividerItemDecoration = DividerItemDecoration(
-                categoriesRv.context,
-                vmProduct.orientation
-            )
-            dividerItemDecoration.setDrawable(
-                resources.getDrawable(
-                    R.drawable.decor_layout_no_bg_hori,
-                    null
-                ))
-
-            var decor = categoriesRv.itemDecorationCount
-            if (decor >= 1) {
-                categoriesRv.removeItemDecorationAt(0)
-            }
-
-            categoriesRv.addItemDecoration(dividerItemDecoration)
-
-
-
-
-
-            layoutManager = vmProduct
-            adapter = categoriesAdapter
-
-
-        }
-*/
-
-    }
 
     @SuppressLint("ClickableViewAccessibility")
     fun clicks() {
-/*        notifyBt.setOnClickListener {
-//            findNavController().navigate(R.id.action_homeFragment_to_notifyFragment)
-        }*/
-/*        adressTextHome.setOnClickListener {
-            if (preferences?.getLogin() == true) {
-                if (isAdded){
-                    Message.msg(
-                        requireContext(), "Escolher seu Local?",
-                        "", object : Message.Answer {
-                            override fun setOnClickListener() {
-//                                findNavController().navigate(R.id.action_homeFragment_to_selectAddressIndexFrag)
-
-
-                            }
-                        })
-                }
-            }else{
-                goLogin()
-            }
-            return@setOnClickListener
-        }*/
-      /*  searchBt.setOnClickListener {
-            var name = editTextSearchRest.text.toString()
-
-        }*/
-
-
-
-
-
-/*        editTextSearchRest.setOnKeyListener(object : View.OnKeyListener {
-            override fun onKey(v: View?, keyCode: Int, event: KeyEvent?): Boolean {
-                if (keyCode == KeyEvent.KEYCODE_ENTER && event?.getAction() == KeyEvent.ACTION_DOWN) {
-                    var name = editTextSearchRest.text.toString()
-
-                }
-                return false
-            }
-        })*/
-
-
-
-
 
     }
     fun goLogin(){
@@ -526,59 +352,117 @@ class HomeFragment : Fragment() {
         fragmentManager?.let { it1 -> dialog.show(it1, "BadMessageDialog") }
     }
 
-    fun createRestaurants() {
-//        buscaEstab("")
-        destaques()
+    fun configureCategoriesAdapter() {
+        categoriesAdapter = CategoriesFullAdapter(categoryList, object : RecyclerItemClickListener {
+      /*      override fun onClickListenerCategoriesAdapter(categorySubList: CategorySubList) {
+                super.onClickListenerCategoriesAdapter(categorySubList)
+
+             *//*   var bundle = bundleOf(
+                    "categorySubListArgs" to categorySubList
+                )
+                findNavController().navigate(
+                    R.id.action_homeFragment_to_restaurantDetailFragment,
+                    bundle
+                )
+*//*
+            }*/
+
+        }, requireContext())
+
+
+        val vmProduct = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
+        categoriesRv.apply {
+            setHasFixedSize(true)
+            setItemViewCacheSize(512)
+            categoriesAdapter.setHasStableIds(true)
+
+
+            val itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+            itemDecoration.setDrawable(
+                resources.getDrawable(
+                    R.drawable.decor_layout_no_bg_vert,
+                    null
+                )
+            )
+            var decor = this.itemDecorationCount
+            if (decor>=1){
+                this.removeItemDecorationAt(0)
+            }
+
+            /*this.addItemDecoration(
+                @SuppressLint("UseCompatLoadingForDrawables")
+                object : CustomDividerItemDecorator( resources.getDrawable(
+                    R.drawable.decor_layout_bg_vert3,
+                    null
+                )){
+
+                }
+            )*/
+
+
+
+
+            layoutManager = vmProduct
+            adapter = categoriesAdapter
+
+
+        }
+
     }
 
-    fun destaques() {
+    fun createCategories() {
+
+        var categories = ArrayList<CategorySubList>()
+        var childCategories_1 = ArrayList<CategorySubListItem>()
+
+        childCategories_1.add(CategorySubListItem(
+            title = "teste", image = R.drawable.thumbnail1, duration = "00:02 min",
+
+        ))
+        childCategories_1.add(CategorySubListItem(
+            title = "teste2", image = R.drawable.thumbnail2, duration = "00:10 min",
+
+            ))
+        childCategories_1.add(CategorySubListItem(
+            title = "teste3", image = R.drawable.thumbnail3, duration = "00:05 min",
+
+            ))
+        childCategories_1.add(CategorySubListItem(
+            title = "teste4", image = R.drawable.thumbnail4, duration = "00:16 min",
+
+            ))
+        childCategories_1.add(CategorySubListItem(
+            title = "teste5", image = R.drawable.thumbnail5, duration = "00:30 min",
+
+            ))
+        categories.add(CategorySubList(
+
+            nome="pedágio", categories = childCategories_1
 
 
-       /* restaurantList.clear()
+        ))
+        categories.add(CategorySubList(
 
-        var restaurantBody = RestaurantSubListItem()
-        restaurantBody.id_de = Preferences(requireContext()).getUserData()?.id
-        RestaurantControl(requireContext(), object : WSResult {
-            override fun responseRestaurant(restaurent: Restaurant, type: String) {
-                super.responseRestaurant(restaurent, type)
-                restaurantList.clear()
-                restaurantList.addAll(restaurent)
-                if (::restaurantAdapter.isInitialized) restaurantAdapter.notifyDataSetChanged()
-            }
+            nome="Pernas", categories = childCategories_1
 
 
-            override fun error(error: String) {
-                super.error(error)
-                dialogshowAtention(error)
-            }
+        ))
+        categories.add(CategorySubList(
+
+            nome="Ombros", categories = childCategories_1
 
 
-        }).destaques(restaurantBody)*/
+        ))
+        categories.add(CategorySubList(
+
+            nome="Costas", categories = childCategories_1
+
+
+        ))
+        categoryList.addAll(categories)
     }
-    fun buscaEstab(name: String) {
 
-
-       /* restaurantList.clear()
-
-        var restaurantBody = RestaurantSubListItem()
-        restaurantBody.nome = name
-        RestaurantControl(requireContext(), object : WSResult {
-            override fun responseRestaurant(restaurent: Restaurant, type: String) {
-                super.responseRestaurant(restaurent, type)
-                restaurantList.clear()
-                restaurantList.addAll(restaurent)
-                if (::restaurantAdapter.isInitialized) restaurantAdapter.notifyDataSetChanged()
-            }
-
-
-            override fun error(error: String) {
-                super.error(error)
-                dialogshowAtention(error)
-            }
-
-
-        }).buscaEstab(restaurantBody)*/
-    }
 
 
 
