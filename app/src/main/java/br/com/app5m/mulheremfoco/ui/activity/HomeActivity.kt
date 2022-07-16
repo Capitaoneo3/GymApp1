@@ -288,7 +288,7 @@ class HomeActivity : AppCompatActivity() {
         } else {
             (activity as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(
                 ColorDrawable(
-                    resources.getColor(R.color.primary)
+                    resources.getColor(R.color.secundary)
                 )
             )
         }
