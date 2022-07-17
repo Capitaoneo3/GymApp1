@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/briefieng_nav.xml"
+    app:startDestination="@id/introContainerFrag">
+    <fragment
+        android:id="@+id/introContainerFrag"
+        android:name="br.com.app5m.mulheremfoco.ui.fragment.briefieng.IntroContainerFrag"
+        android:label="IntroContainerFrag" >
+        <action
+            android:id="@+id/action_introContainerFrag_to_yourAgeFragment2"
+            app:destination="@id/yourAgeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/yourHeightFragment"
+        android:name="br.com.app5m.mulheremfoco.ui.fragment.briefieng.questions.YourHeightFragment"
+        android:label="fragment_your_height"
+        tools:layout="@layout/fragment_your_height" >
+        <action
+            android:id="@+id/action_yourHeightFragment_to_yourWeightFragment"
+            app:destination="@id/yourWeightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/yourLevelFragment"
+        android:name="br.com.app5m.mulheremfoco.ui.fragment.briefieng.questions.YourLevelFragment"
+        android:label="fragment_your_level"
+        tools:layout="@layout/fragment_your_level" />
+    <fragment
+        android:id="@+id/yourWeightFragment"
+        android:name="br.com.app5m.mulheremfoco.ui.fragment.briefieng.questions.YourWeightFragment"
+        android:label="fragment_your_weight"
+        tools:layout="@layout/fragment_your_weight" >
+        <action
+            android:id="@+id/action_yourWeightFragment_to_yourMeasurementsFragment"
+            app:destination="@id/yourMeasurementsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/yourMeasurementsFragment"
+        android:name="br.com.app5m.mulheremfoco.ui.fragment.briefieng.questions.YourMeasurementsFragment"
+        android:label="fragment_your_measurements"
+        tools:layout="@layout/fragment_your_measurements" >
+        <action
+            android:id="@+id/action_yourMeasurementsFragment_to_yourLevelFragment"
+            app:destination="@id/yourLevelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/yourAgeFragment2"
+        android:name="br.com.app5m.mulheremfoco.ui.fragment.briefieng.questions.YourAgeFragment"
+        android:label="fragment_your_age"
+        tools:layout="@layout/fragment_your_age" >
+        <action
+            android:id="@+id/action_yourAgeFragment2_to_yourHeightFragment"
+            app:destination="@id/yourHeightFragment" />
+    </fragment>
+</navigation>

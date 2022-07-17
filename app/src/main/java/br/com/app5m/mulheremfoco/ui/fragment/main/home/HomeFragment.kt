@@ -23,6 +23,7 @@ import br.com.app5m.mulheremfoco.helper.Preferences
 import br.com.app5m.mulheremfoco.helper.RecyclerItemClickListener
 import br.com.app5m.mulheremfoco.model.category.CategorySubList
 import br.com.app5m.mulheremfoco.model.category.CategorySubListItem
+import br.com.app5m.mulheremfoco.ui.activity.BriefiengActivity
 import br.com.app5m.mulheremfoco.ui.activity.MainActivity
 import br.com.app5m.mulheremfoco.ui.adapter.CategoriesFullAdapter
 
@@ -60,6 +61,10 @@ class HomeFragment : Fragment() {
 
     private val binding get() = _binding!!
 
+
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -87,7 +92,10 @@ class HomeFragment : Fragment() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        activity?.let {
+            val intent = Intent(it, BriefiengActivity::class.java)
+            it.startActivity(intent)
+        }
         createCategories()
 
     }
@@ -103,6 +111,9 @@ class HomeFragment : Fragment() {
     }
 
     fun configureInitialViews() {
+
+
+
 //        preferences = Preferences(requireContext())
 
        /* if (preferences?.getLogin() == true) {

@@ -40,18 +40,19 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_marginTop="20dp"
 
-                    style="@style/textInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="CEP">
+
+
+                    android:hint="CEP"
+
+                    >
 
                     <com.santalu.maskedittext.MaskEditText
                         android:id="@+id/cep_et"
-                        style="@style/EditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-
                         android:ems="10"
                         android:inputType="number"
                         android:paddingStart="10dp"
@@ -70,17 +71,16 @@
 
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/textInputLayout"
                         android:layout_marginEnd="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="Estado">
+                        android:hint="Estado"
 
-                        <EditText
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/state_et"
-
-                            style="@style/EditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
@@ -92,18 +92,16 @@
 
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/textInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="10dp"
+                        android:hint="Cidade"
 
-                        android:hint="Cidade">
+                       >
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/city_et"
-
-                            style="@style/EditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
@@ -118,18 +116,17 @@
 
                 <com.google.android.material.textfield.TextInputLayout
 
-                    style="@style/textInputLayout"
                     android:layout_marginTop="10dp"
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:hint="Endereço">
+                    android:hint="Endereço"
 
-                    <EditText
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/address_et"
-
-                        style="@style/EditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -144,18 +141,17 @@
 
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/textInputLayout"
                     android:layout_marginTop="10dp"
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:hint="Bairro">
+                    android:hint="Bairro"
 
-                    <EditText
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/nbh_et"
-
-                        style="@style/EditText"
                         android:layout_width="match_parent"
 
                         android:layout_height="wrap_content"
@@ -176,18 +172,17 @@
 
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/textInputLayout"
                         android:layout_marginEnd="10dp"
 
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:hint="Número">
+                        android:hint="Número"
 
-                        <EditText
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/number_et"
-
-                            style="@style/EditText"
                             android:layout_width="match_parent"
 
                             android:layout_height="wrap_content"
@@ -202,19 +197,18 @@
 
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/textInputLayout"
 
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_marginStart="10dp"
+                        android:hint="Complemento"
 
-                        android:hint="Complemento">
 
-                        <EditText
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/complemento_et"
-
-                            style="@style/EditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -242,117 +236,112 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout3"
-            style="@style/textInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textColorHint="@color/textColor2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4">
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            android:hint="Nome"
 
-            <EditText
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/name"
-                style="@style/EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_baseline_person_24"
-                android:hint="Nome"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout4"
-            style="@style/textInputLayout"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/textColor2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
 
-            <EditText
+            android:hint="Email "
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email"
-                style="@style/EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_baseline_email_24"
-                android:hint="Email "
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
-            style="@style/textInputLayout"
             android:layout_marginTop="10dp"
+            android:hint="Celular"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/textColor2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/number"
-                style="@style/EditText"
                 android:inputType="number"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_baseline_phone_android_24"
-                android:hint="Celular"
                  />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout5"
-            style="@style/textInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
 
-            android:textColorHint="@color/textColor2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/colorAccent">
+            app:passwordToggleTint="@color/colorAccent"
+            android:hint="Confirmar Senha "
 
-            <EditText
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/coPassword"
-                style="@style/EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_baseline_vpn_key_24"
                 android:drawableTint="@color/colorAccent"
-                android:hint="Confirmar Senha "
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout2"
-            style="@style/textInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/textColor2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="10dp"
 
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/colorAccent">
+            app:passwordToggleTint="@color/colorAccent"
+            android:hint="@string/prompt_password"
 
-            <EditText
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"
-                style="@style/EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_baseline_vpn_key_24"
                 android:drawableTint="@color/colorAccent"
-                android:hint="@string/prompt_password"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -371,7 +360,6 @@
             <Button
 
                 android:id="@+id/confirm"
-                style="@style/button1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"

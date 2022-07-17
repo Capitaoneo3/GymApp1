@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_homeFragment_to_trainingDetailFragment"
             app:destination="@id/trainingDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_briefiengActivity"
+            app:destination="@id/briefiengActivity" />
     </fragment>
     <fragment
         android:id="@+id/diaryFragment"
@@ -33,4 +36,8 @@
         android:name="br.com.app5m.mulheremfoco.ui.fragment.main.home.TrainingDetailFragment"
         android:label="fragment_training_detail"
         tools:layout="@layout/fragment_training_detail" />
+    <activity
+        android:id="@+id/briefiengActivity"
+        android:name="br.com.app5m.mulheremfoco.ui.activity.BriefiengActivity"
+        android:label="BriefiengActivity" />
 </navigation>

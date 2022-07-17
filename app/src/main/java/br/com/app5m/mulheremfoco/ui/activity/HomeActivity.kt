@@ -14,7 +14,6 @@ import android.media.RingtoneManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.Menu
@@ -80,7 +79,7 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        navController = findNavController(R.id.main_nav_host) //Initialising navController
+        navController = findNavController(R.id.home_nav_host) //Initialising navController
         appBarConfiguration = AppBarConfiguration.Builder(
             R.id.homeFragment,
             R.id.diaryFragment, R.id.foodPlanFragment, R.id.menuFragment
@@ -221,6 +220,17 @@ class HomeActivity : AppCompatActivity() {
 
                 showBothNavigation()
             }
+                R.id.trainingDetailFragment -> {
+                    binding.homeActToolbar.visibility = View.VISIBLE
+
+
+                    showActionBarLogoFade(this, false)
+
+                    supportActionBar?.setDisplayShowTitleEnabled(true)
+                    supportActionBar?.title = ""
+                    hideBottomNavigation()
+                }
+
                 else -> {
                     binding.homeActToolbar.visibility = View.VISIBLE
 
@@ -399,18 +409,18 @@ class HomeActivity : AppCompatActivity() {
 
 
     private fun hideBottomNavigation() { //Hide bottom navigation
-        binding.mainBottomNavigationView.visibility = View.GONE
+        binding.homeBottomNavigationView.visibility = View.GONE
 
     }
 
     private fun showBothNavigation() {
-        binding.mainBottomNavigationView.visibility = View.VISIBLE
+        binding.homeBottomNavigationView.visibility = View.VISIBLE
 
         setupNavControl() //To configure navController with drawer and bottom navigation
     }
 
     private fun setupNavControl() {
-        binding.mainBottomNavigationView.setupWithNavController(navController) //Setup Bottom navigation with navController
+        binding.homeBottomNavigationView.setupWithNavController(navController) //Setup Bottom navigation with navController
     }
 
     fun exitApp() { //To exit the application call this function from fragment
