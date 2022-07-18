@@ -50,21 +50,42 @@ class BriefiengActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
                  when (destination.id) {
-                     R.id.loginFragment ->{
+                     R.id.introContainerFrag ->{
                          briefieng_appbar.visibility = View.GONE
                          supportActionBar?.setDisplayShowTitleEnabled(false)
      //                         supportActionBar?.setTitle("Favoritos")
                      }
-                     R.id.siginUpFrag ->{
+                     R.id.yourAgeFragment2 ->{
+                         briefieng_appbar.visibility = View.GONE
+                         supportActionBar?.setDisplayShowTitleEnabled(true)
+                         supportActionBar?.setTitle("")
+                     }
+                     R.id.yourHeightFragment ->{
                          briefieng_appbar.visibility = View.VISIBLE
                          supportActionBar?.setDisplayShowTitleEnabled(true)
-                         supportActionBar?.setTitle("Cadastre-se")
+                         supportActionBar?.setTitle("")
                      }
-                     R.id.recoverPassFrag2 ->{
+                     R.id.yourWeightFragment ->{
                          briefieng_appbar.visibility = View.VISIBLE
                          supportActionBar?.setDisplayShowTitleEnabled(true)
-                         supportActionBar?.setTitle("Recuperar Senha")
+                         supportActionBar?.setTitle("")
                      }
+                     R.id.yourMeasurementsFragment ->{
+                         briefieng_appbar.visibility = View.VISIBLE
+                         supportActionBar?.setDisplayShowTitleEnabled(true)
+                         supportActionBar?.setTitle("")
+                     }
+                     R.id.yourAgeFragment2 ->{
+                         briefieng_appbar.visibility = View.VISIBLE
+                         supportActionBar?.setDisplayShowTitleEnabled(true)
+                         supportActionBar?.setTitle("")
+                     }
+                     R.id.yourLevelFragment ->{
+                         briefieng_appbar.visibility = View.GONE
+                         supportActionBar?.setDisplayShowTitleEnabled(true)
+                         supportActionBar?.setTitle("R")
+                     }
+
                      else ->{
                          briefieng_appbar.visibility = View.GONE
 

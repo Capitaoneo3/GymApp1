@@ -28,6 +28,7 @@
         <item name="materialButtonOutlinedStyle">@style/Widget.App.Button.OutlinedButton</item>
         <item name="materialButtonStyle">@style/Widget.App.Button</item>
         <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
+        <item name="appBarLayoutStyle">@style/AppTheme.AppBarOverlay</item>
 
 
     </style>

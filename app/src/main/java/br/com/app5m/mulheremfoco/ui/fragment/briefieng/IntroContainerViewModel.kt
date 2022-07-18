@@ -1,5 +1,4 @@
-package br.com.app5m.oqcomer.ui.fragment.intro
-
+package br.com.app5m.mulheremfoco.ui.fragment.briefieng
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

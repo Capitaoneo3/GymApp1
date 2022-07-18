@@ -17,7 +17,7 @@ import br.com.app5m.mulheremfoco.R
 import br.com.app5m.mulheremfoco.helper.IntroHelper
 import br.com.app5m.mulheremfoco.helper.Preferences
 import br.com.app5m.mulheremfoco.ui.activity.HomeActivity
-import br.com.app5m.oqcomer.ui.fragment.intro.IntroContainerViewModel
+import br.com.app5m.mulheremfoco.ui.fragment.briefieng.IntroContainerViewModel
 import kotlinx.android.synthetic.main.fragment_intro_container.*
 
 
@@ -40,7 +40,7 @@ class IntroContainerFrag : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        checkFristOpen()
+//        checkFristOpen()
         configInitialViews()
 
     }
@@ -105,15 +105,15 @@ class IntroContainerFrag : Fragment() {
             }
             else{
 
-                Handler().postDelayed({
+              /*  Handler().postDelayed({
 
-                 /*   activity?.let{
+                 *//*   activity?.let{
                         val intent = Intent (it, HomeActivity::class.java
                         it.startActivity(intent)
                         it.finishAffinity()
-                    }*/
+                    }*//*
 
-                }, 4000)
+                }, 4000)*/
 
 
             }
