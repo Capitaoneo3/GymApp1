@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.os.Bundle
+import android.os.Handler
 import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
@@ -23,6 +24,7 @@ import br.com.app5m.mulheremfoco.helper.Preferences
 import br.com.app5m.mulheremfoco.helper.RecyclerItemClickListener
 import br.com.app5m.mulheremfoco.model.category.CategorySubList
 import br.com.app5m.mulheremfoco.model.category.CategorySubListItem
+import br.com.app5m.mulheremfoco.ui.activity.BriefiengActivity
 import br.com.app5m.mulheremfoco.ui.activity.MainActivity
 import br.com.app5m.mulheremfoco.ui.adapter.CategoriesFullAdapter
 
@@ -91,16 +93,18 @@ class HomeFragment : Fragment() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-/*        activity?.let {
+        activity?.let {
             val intent = Intent(it, BriefiengActivity::class.java)
             it.startActivity(intent)
-        }*/
+        }
         createCategories()
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         swiperefresh.setOnRefreshListener {
             createCategories()
             swiperefresh.isRefreshing = false

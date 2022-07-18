@@ -132,7 +132,7 @@ class IntroContainerFrag : Fragment() {
 //            IntroHelper.storeInt(requireContext(), IntroHelper.ENTERING_FIRST_TIME, 0)
 
 
-          findNavController().navigate(R.id.action_introContainerFrag_to_yourAgeFragment2)
+          findNavController().navigate(R.id.action_introContainerFrag_to_yourAgeFragment)
 
         }
 

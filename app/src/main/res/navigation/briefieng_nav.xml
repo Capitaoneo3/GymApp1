@@ -22,36 +22,28 @@
         android:id="@+id/yourWeightFragment"
         android:name="br.com.app5m.mulheremfoco.ui.fragment.briefieng.questions.YourWeightFragment"
         android:label="fragment_your_weight"
-        tools:layout="@layout/fragment_your_weight" >
-        <action
-            android:id="@+id/action_yourWeightFragment_to_yourMeasurementsFragment"
-            app:destination="@id/yourMeasurementsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_your_weight" />
     <fragment
         android:id="@+id/yourMeasurementsFragment"
         android:name="br.com.app5m.mulheremfoco.ui.fragment.briefieng.questions.YourMeasurementsFragment"
         android:label="fragment_your_measurements"
-        tools:layout="@layout/fragment_your_measurements" >
-        <action
-            android:id="@+id/action_yourMeasurementsFragment_to_yourLevelFragment"
-            app:destination="@id/yourLevelFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/yourAgeFragment2"
-        android:name="br.com.app5m.mulheremfoco.ui.fragment.briefieng.questions.YourAgeFragment"
-        android:label="fragment_your_age"
-        tools:layout="@layout/fragment_your_age" >
-        <action
-            android:id="@+id/action_yourAgeFragment2_to_yourHeightFragment"
-            app:destination="@id/yourHeightFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_your_measurements" />
     <fragment
         android:id="@+id/introContainerFrag"
         android:name="br.com.app5m.mulheremfoco.ui.fragment.briefieng.IntroContainerFrag"
         android:label="fragment_intro_container"
         tools:layout="@layout/fragment_intro_container" >
         <action
-            android:id="@+id/action_introContainerFrag_to_yourAgeFragment2"
-            app:destination="@id/yourAgeFragment2" />
+            android:id="@+id/action_introContainerFrag_to_yourAgeFragment"
+            app:destination="@id/yourAgeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/yourAgeFragment"
+        android:name="br.com.app5m.mulheremfoco.ui.fragment.briefieng.questions.YourAgeFragment"
+        android:label="fragment_your_age"
+        tools:layout="@layout/fragment_your_age" >
+        <action
+            android:id="@+id/action_yourAgeFragment_to_yourHeightFragment"
+            app:destination="@id/yourHeightFragment" />
     </fragment>
 </navigation>

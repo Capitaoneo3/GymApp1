@@ -5,6 +5,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -29,12 +30,10 @@ class BriefiengActivity : AppCompatActivity() {
 
 
 
-
         navController = findNavController(R.id.briefing_nav_host)
 
         appBarConfiguration = AppBarConfiguration.Builder(
-/*            R.id.favoritesFrag,
-            R.id.menuFrag, R.id.homeFragment*/
+            R.id.introContainerFrag
         )
             .build()
         setSupportActionBar(binding.briefiengToolbar)
@@ -55,11 +54,7 @@ class BriefiengActivity : AppCompatActivity() {
                          supportActionBar?.setDisplayShowTitleEnabled(false)
      //                         supportActionBar?.setTitle("Favoritos")
                      }
-                     R.id.yourAgeFragment2 ->{
-                         briefieng_appbar.visibility = View.GONE
-                         supportActionBar?.setDisplayShowTitleEnabled(true)
-                         supportActionBar?.setTitle("")
-                     }
+
                      R.id.yourHeightFragment ->{
                          briefieng_appbar.visibility = View.VISIBLE
                          supportActionBar?.setDisplayShowTitleEnabled(true)
@@ -75,7 +70,7 @@ class BriefiengActivity : AppCompatActivity() {
                          supportActionBar?.setDisplayShowTitleEnabled(true)
                          supportActionBar?.setTitle("")
                      }
-                     R.id.yourAgeFragment2 ->{
+                     R.id.yourAgeFragment ->{
                          briefieng_appbar.visibility = View.VISIBLE
                          supportActionBar?.setDisplayShowTitleEnabled(true)
                          supportActionBar?.setTitle("")
@@ -98,10 +93,10 @@ class BriefiengActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = navController
         return when (navController.currentDestination?.id) {
-            /*   R.id.homeFragment -> {
-                   finish()
+               R.id.yourMeasurementsFragment -> {
+//                   navController.navigateUp()
                    true
-               }*/
+               }
             else -> navController.navigateUp()
         }
         //Setup appBarConfiguration for back arrow

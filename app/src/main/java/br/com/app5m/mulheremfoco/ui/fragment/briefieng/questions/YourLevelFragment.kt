@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import br.com.app5m.mulheremfoco.R
 import kotlinx.android.synthetic.main.fragment_your_level.*
 
@@ -42,7 +43,7 @@ class YourLevelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         button.setOnClickListener {
-            requireActivity().finish()
+//            findNavController().navigate(R.id.xml2)
         }
     }
 

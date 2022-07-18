@@ -42,7 +42,7 @@ class YourHeightFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        findNavController().navigate(R.id.action_yourHeightFragment_to_yourWeightFragment)
+//        findNavController().navigate(R.id.action_yourHeightFragment_to_yourWeightFragment)
     }
 
     companion object {

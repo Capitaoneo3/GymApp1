@@ -40,7 +40,7 @@ class YourWeightFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        findNavController().navigate(R.id.action_yourWeightFragment_to_yourMeasurementsFragment)
+//        findNavController().navigate(R.id.action_yourWeightFragment_to_yourMeasurementsFragment)
     }
     companion object {
         /**

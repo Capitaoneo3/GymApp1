@@ -12,9 +12,6 @@
         <action
             android:id="@+id/action_homeFragment_to_trainingDetailFragment"
             app:destination="@id/trainingDetailFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_briefiengActivity"
-            app:destination="@id/briefiengActivity" />
     </fragment>
     <fragment
         android:id="@+id/diaryFragment"
@@ -40,8 +37,4 @@
             android:id="@+id/action_trainingDetailFragment_self"
             app:destination="@id/trainingDetailFragment" />
     </fragment>
-    <activity
-        android:id="@+id/briefiengActivity"
-        android:name="br.com.app5m.mulheremfoco.ui.activity.BriefiengActivity"
-        android:label="BriefiengActivity" />
 </navigation>
