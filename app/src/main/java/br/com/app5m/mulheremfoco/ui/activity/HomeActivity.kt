@@ -198,24 +198,31 @@ class HomeActivity : AppCompatActivity() {
                     showActionBarLogoFade(this, true)
 //                    binding.homeActToolbar.visibility = View.GONE
 
+                    binding.homeActToolbar.visibility = View.VISIBLE
 
                     showBothNavigation()
                 }
 
                 R.id.diaryFragment -> {
+                    binding.homeActToolbar.visibility = View.GONE
+
                     supportActionBar?.setDisplayShowTitleEnabled(false)
                     showActionBarLogo(this, true)
 
                     showBothNavigation()
                 }
                 R.id.foodPlanFragment -> {
+                    binding.homeActToolbar.visibility = View.VISIBLE
+
                     supportActionBar?.setDisplayShowTitleEnabled(false)
                     showActionBarLogo(this, true)
 
                     showBothNavigation()
                 }
                 R.id.menuFragment -> {
-                supportActionBar?.setDisplayShowTitleEnabled(false)
+                    binding.homeActToolbar.visibility = View.VISIBLE
+
+                    supportActionBar?.setDisplayShowTitleEnabled(false)
                 showActionBarLogo(this, true)
 
                 showBothNavigation()
