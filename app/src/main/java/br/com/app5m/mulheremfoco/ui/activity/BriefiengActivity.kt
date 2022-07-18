@@ -93,10 +93,10 @@ class BriefiengActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = navController
         return when (navController.currentDestination?.id) {
-               R.id.yourMeasurementsFragment -> {
+          /*     R.id.yourMeasurementsFragment -> {
 //                   navController.navigateUp()
                    true
-               }
+               }*/
             else -> navController.navigateUp()
         }
         //Setup appBarConfiguration for back arrow

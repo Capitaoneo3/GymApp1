@@ -46,7 +46,7 @@ class YourAgeFragment : Fragment() {
 
 
         button.setOnClickListener {
-//            findNavController().navigate(R.id.action_yourAgeFragment2_to_yourHeightFragment)
+            findNavController().navigate(R.id.action_yourAgeFragment_to_yourHeightFragment)
         }
     }
 

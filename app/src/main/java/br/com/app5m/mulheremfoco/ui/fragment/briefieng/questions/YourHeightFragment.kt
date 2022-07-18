@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import br.com.app5m.mulheremfoco.R
+import kotlinx.android.synthetic.main.fragment_your_height.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,6 +43,11 @@ class YourHeightFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        button.setOnClickListener {
+            findNavController().navigate(R.id.action_yourHeightFragment_to_yourWeightFragment)
+        }
+
 //        findNavController().navigate(R.id.action_yourHeightFragment_to_yourWeightFragment)
     }
 

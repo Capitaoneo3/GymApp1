@@ -22,12 +22,20 @@
         android:id="@+id/yourWeightFragment"
         android:name="br.com.app5m.mulheremfoco.ui.fragment.briefieng.questions.YourWeightFragment"
         android:label="fragment_your_weight"
-        tools:layout="@layout/fragment_your_weight" />
+        tools:layout="@layout/fragment_your_weight" >
+        <action
+            android:id="@+id/action_yourWeightFragment_to_yourMeasurementsFragment"
+            app:destination="@id/yourMeasurementsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/yourMeasurementsFragment"
         android:name="br.com.app5m.mulheremfoco.ui.fragment.briefieng.questions.YourMeasurementsFragment"
         android:label="fragment_your_measurements"
-        tools:layout="@layout/fragment_your_measurements" />
+        tools:layout="@layout/fragment_your_measurements" >
+        <action
+            android:id="@+id/action_yourMeasurementsFragment_to_yourLevelFragment"
+            app:destination="@id/yourLevelFragment" />
+    </fragment>
     <fragment
         android:id="@+id/introContainerFrag"
         android:name="br.com.app5m.mulheremfoco.ui.fragment.briefieng.IntroContainerFrag"

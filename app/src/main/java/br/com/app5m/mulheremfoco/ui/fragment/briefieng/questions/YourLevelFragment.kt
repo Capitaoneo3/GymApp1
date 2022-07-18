@@ -43,6 +43,7 @@ class YourLevelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         button.setOnClickListener {
+            requireActivity().finish()
 //            findNavController().navigate(R.id.xml2)
         }
     }
