@@ -22,7 +22,7 @@ class CategoriesFullAdapter (private val categoryList: List<CategorySubList>, va
     private val viewPool = RecyclerView.RecycledViewPool()
     private lateinit var categoriesAdapter: RecyclerView.Adapter<*>
 
-    private val childcategoryList = java.util.ArrayList<CategorySubListItem>()
+    private val listCategorySubListItem = java.util.ArrayList<CategorySubListItem>()
 
     private var screenWidth = 0
 
@@ -55,12 +55,21 @@ class CategoriesFullAdapter (private val categoryList: List<CategorySubList>, va
 
 
 //        holder.itemView.setOnClickListener { clickListener.onClickListenerCategoriesAdapter(categoryItem) }
-        createCategories(categoryItem)
-        configureCategoriesAdapter(holder,position)
+//        createCategories(categoryItem)
+        configureCategoriesAdapter(holder,position,categoryItem)
     }
 
-    fun configureCategoriesAdapter(holder: CategoriesHoriHolder, position: Int ) {
-        categoriesAdapter = ChildCategoriesAdapter(childcategoryList, object : RecyclerItemClickListener {
+    fun configureCategoriesAdapter(
+        holder: CategoriesHoriHolder,
+        position: Int,
+        categoryItem: CategorySubList
+    ) {
+
+        listCategorySubListItem.clear()
+        categoryItem.categories?.let { listCategorySubListItem.addAll(it) }
+
+
+        categoriesAdapter = ChildCategoriesAdapter(listCategorySubListItem, object : RecyclerItemClickListener {
 
             override fun onClickListenerCategoriesAdapter(categorySubList: CategorySubListItem) {
                 super.onClickListenerCategoriesAdapter(categorySubList)
@@ -89,7 +98,7 @@ class CategoriesFullAdapter (private val categoryList: List<CategorySubList>, va
        holder.categoriesChieldRv.apply {
             setHasFixedSize(true)
             setItemViewCacheSize(512)
-            categoriesAdapter.setHasStableIds(true)
+//            categoriesAdapter.setHasStableIds(true)
 
 
 
@@ -124,7 +133,12 @@ class CategoriesFullAdapter (private val categoryList: List<CategorySubList>, va
     fun createCategories( categoryItem : CategorySubList) {
 
 
-        categoryItem.categories?.let { childcategoryList.addAll(it) }
+        categoryItem.categories?.let {
+            listCategorySubListItem.clear()
+            listCategorySubListItem.addAll(it)
+
+
+        }
     }
 
 

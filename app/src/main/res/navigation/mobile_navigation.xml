@@ -35,7 +35,11 @@
         android:id="@+id/trainingDetailFragment"
         android:name="br.com.app5m.mulheremfoco.ui.fragment.main.home.TrainingDetailFragment"
         android:label="fragment_training_detail"
-        tools:layout="@layout/fragment_training_detail" />
+        tools:layout="@layout/fragment_training_detail" >
+        <action
+            android:id="@+id/action_trainingDetailFragment_self"
+            app:destination="@id/trainingDetailFragment" />
+    </fragment>
     <activity
         android:id="@+id/briefiengActivity"
         android:name="br.com.app5m.mulheremfoco.ui.activity.BriefiengActivity"

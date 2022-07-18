@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.com.app5m.mulheremfoco.R
@@ -23,9 +24,8 @@ class VideosAdapter (private val categoryList: List<CategorySubListItem>, val cl
     private var screenWidth = 0
 
     class CategoriesHoriHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-      /*  val name: TextView = itemView.findViewById(R.id.title)
-        val image: ImageView = itemView.findViewById(R.id.image)
-        val frameLayout: FrameLayout = itemView.findViewById(R.id.frameChildLL)*/
+
+        val cardView: CardView = itemView.findViewById(R.id.vamoDale)
 
 
     }
@@ -57,8 +57,8 @@ class VideosAdapter (private val categoryList: List<CategorySubListItem>, val cl
 
 
         holder.name.text = categoryItem.title*/
-        holder.itemView.setOnClickListener{ view ->
-            view.findNavController().navigate(R.id.action_homeFragment_to_trainingDetailFragment)
+        holder.cardView.setOnClickListener{ view ->
+            view.findNavController().navigate(R.id.action_trainingDetailFragment_self)
         }
         holder.itemView.setOnClickListener { clickListener.onClickListenerCategoriesAdapter(categoryItem) }
 

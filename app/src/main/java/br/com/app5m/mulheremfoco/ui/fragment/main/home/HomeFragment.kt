@@ -23,7 +23,6 @@ import br.com.app5m.mulheremfoco.helper.Preferences
 import br.com.app5m.mulheremfoco.helper.RecyclerItemClickListener
 import br.com.app5m.mulheremfoco.model.category.CategorySubList
 import br.com.app5m.mulheremfoco.model.category.CategorySubListItem
-import br.com.app5m.mulheremfoco.ui.activity.BriefiengActivity
 import br.com.app5m.mulheremfoco.ui.activity.MainActivity
 import br.com.app5m.mulheremfoco.ui.adapter.CategoriesFullAdapter
 
@@ -92,10 +91,10 @@ class HomeFragment : Fragment() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activity?.let {
+/*        activity?.let {
             val intent = Intent(it, BriefiengActivity::class.java)
             it.startActivity(intent)
-        }
+        }*/
         createCategories()
 
     }
@@ -386,7 +385,7 @@ class HomeFragment : Fragment() {
         categoriesRv.apply {
             setHasFixedSize(true)
             setItemViewCacheSize(512)
-            categoriesAdapter.setHasStableIds(true)
+//            categoriesAdapter.setHasStableIds(true)
 
 
             val itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
@@ -424,8 +423,13 @@ class HomeFragment : Fragment() {
 
     fun createCategories() {
 
-        var categories = ArrayList<CategorySubList>()
+        var categorySubList = CategorySubList()
+        categoryList.clear()
+
         var childCategories_1 = ArrayList<CategorySubListItem>()
+        var childCategories_2 = ArrayList<CategorySubListItem>()
+        childCategories_1.clear()
+        childCategories_2.clear()
 
         childCategories_1.add(CategorySubListItem(
             title = "teste", image = R.drawable.thumbnail1, duration = "00:02 min",
@@ -447,31 +451,59 @@ class HomeFragment : Fragment() {
             title = "teste5", image = R.drawable.thumbnail5, duration = "00:30 min",
 
             ))
-        categories.add(CategorySubList(
 
-            nome="pedágio", categories = childCategories_1
+        childCategories_2.add(CategorySubListItem(
+            title = "teste", image = R.drawable.thumbnail5, duration = "00:02 min",
+
+            ))
+        childCategories_2.add(CategorySubListItem(
+            title = "teste2", image = R.drawable.thumbnail4, duration = "00:10 min",
+
+            ))
+        childCategories_2.add(CategorySubListItem(
+            title = "teste3", image = R.drawable.thumbnail3, duration = "00:05 min",
+
+            ))
+        childCategories_2.add(CategorySubListItem(
+            title = "teste4", image = R.drawable.thumbnail2, duration = "00:16 min",
+
+            ))
+        childCategories_2.add(CategorySubListItem(
+            title = "teste5", image = R.drawable.thumbnail1, duration = "00:30 min",
+
+            ))
+        categorySubList =CategorySubList(
+
+            nome="Abdomen", categories = childCategories_2
 
 
-        ))
-        categories.add(CategorySubList(
+        )
+        categoryList.add(categorySubList)
+
+        categorySubList=CategorySubList(
 
             nome="Pernas", categories = childCategories_1
 
 
-        ))
-        categories.add(CategorySubList(
+        )
+        categoryList.add(categorySubList)
+
+        categorySubList=CategorySubList(
 
             nome="Ombros", categories = childCategories_1
 
 
-        ))
-        categories.add(CategorySubList(
+        )
+        categoryList.add(categorySubList)
 
-            nome="Costas", categories = childCategories_1
+        categorySubList=CategorySubList(
+
+            nome="Costas", categories = childCategories_2
 
 
-        ))
-        categoryList.addAll(categories)
+        )
+        categoryList.add(categorySubList)
+
     }
 
 
