@@ -33,7 +33,7 @@
                 android:endColor="#BA476E"
                 android:startColor="#A33158"
                 android:type="linear" />-->
-            <corners android:radius="16dp" />
+            <corners android:radius="5dp" />
 
 
         </shape>

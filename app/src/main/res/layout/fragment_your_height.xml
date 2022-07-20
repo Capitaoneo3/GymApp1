@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="48dp"
                 android:text="Avançar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +77,7 @@
                     android:fontFamily="@font/sfprodisplay_semibold"
                     android:gravity="center"
                     android:text="Qual a sua altura?"
-                    android:textSize="20sp" />
+                    android:textSize="24sp" />
 
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
