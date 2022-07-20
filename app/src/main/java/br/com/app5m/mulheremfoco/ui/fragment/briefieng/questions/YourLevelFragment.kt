@@ -43,8 +43,7 @@ class YourLevelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         button.setOnClickListener {
-            requireActivity().finish()
-//            findNavController().navigate(R.id.xml2)
+            findNavController().navigate(R.id.action_yourLevelFragment_to_payMethodsFragment)
         }
     }
 
